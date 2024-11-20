@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class XPBar : MonoBehaviour
 {
@@ -17,10 +17,10 @@ public class XPBar : MonoBehaviour
     void Update()
     {
         // calc fill amount
-        float maxExperiencePoints = 200;
+        float maxExperiencePoints = 3;
         float currentExperienePoints = Player.experiencePoints;
         //fill amount
         float fillAmount = Mathf.Clamp(currentExperienePoints / maxExperiencePoints, 0, 1);
-      //  xpBarImage.fillAmount = fillAmount;
+        xpBarImage.fillAmount = fillAmount;
     }
 }

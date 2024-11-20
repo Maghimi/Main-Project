@@ -13,6 +13,7 @@ public class PointCollection : MonoBehaviour
     public Slider experienceSlider;
     private AudioSource audioSource;
     private FoodSpawner foodSpawner;
+    private LevelManager levelManager;
     void OnTriggerEnter2D(Collider2D other)
     {
         //check if player collided with collectible
@@ -29,8 +30,9 @@ public class PointCollection : MonoBehaviour
              if (experiencePoints >= requiredPoints)
             {
                 // You can change this scene name to whatever the next level's name is.
+                levelManager.LevelComplete();
                 Debug.Log("Required points reached! Loading next level...");
-                LoadNextLevel();
+                //LoadNextLevel();
             }
             
         }
@@ -41,8 +43,10 @@ public class PointCollection : MonoBehaviour
         //assign audiosource toaudisource
         audioSource = GetComponent<AudioSource>();
         foodSpawner = FindObjectOfType<FoodSpawner>();
+        levelManager = FindObjectOfType<LevelManager>();
         experienceSlider.maxValue = requiredPoints;
         UpdateExperienceBar();
+        
     }
 
     // Update is called once per frame
