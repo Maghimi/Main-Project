@@ -27,6 +27,10 @@ public class EnemyRandomMovement : MonoBehaviour
             //when enemy touches the player, destroy the player
           Destroy(collision.gameObject);
           audioSource.PlayOneShot(death) ; 
+          Debug.Log("haha yes!");
+          FindObjectOfType<GameOverManager>().TriggerGameOver();
+          Debug.Log("cant find");
+          //
         }
     }
 

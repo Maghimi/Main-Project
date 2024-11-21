@@ -26,7 +26,7 @@ public class PointCollection : MonoBehaviour
             Destroy(other.gameObject); //destroy food
             audioSource.PlayOneShot(collectSound) ;// play audio
             foodSpawner.SpawnFood();
-            UpdateExperienceBar();
+            //UpdateExperienceBar();
              if (experiencePoints >= requiredPoints)
             {
                 // You can change this scene name to whatever the next level's name is.

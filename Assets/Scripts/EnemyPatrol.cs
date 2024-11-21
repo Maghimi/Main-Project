@@ -73,7 +73,8 @@ public class EnemyPatrol : MonoBehaviour
         {
             //when enemy touches the player, destroy the player
           Destroy(collision.gameObject);
-          audioSource.PlayOneShot(death) ; 
+          audioSource.PlayOneShot(death) ;
+          FindObjectOfType<GameOverManager>().TriggerGameOver(); 
         }
     }
 }

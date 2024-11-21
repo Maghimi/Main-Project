@@ -17,7 +17,21 @@ public class LevelManager : MonoBehaviour
     public void NextLevel()
     {
         Time.timeScale = 1; // Unpause the game
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // Load next level
+        // Check if the current level is the last level
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int totalScenes = SceneManager.sceneCountInBuildSettings;
+        
+        if (currentSceneIndex + 1 >= totalScenes)
+        {
+            // If it is the last level, load the first level
+            SceneManager.LoadScene(0);
+        }
+        else
+        {
+            // Otherwise, load the next level
+            SceneManager.LoadScene(currentSceneIndex + 1);
+        }
+    
     }
 
     // Method to replay the current level

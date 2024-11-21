@@ -32,6 +32,7 @@ public class FollowerEnemy : MonoBehaviour
             //when enemy touches the player, destroy the player
           Destroy(collision.gameObject);
           audioSource.PlayOneShot(death) ; 
+          FindObjectOfType<GameOverManager>().TriggerGameOver();
         }
     }
 }
